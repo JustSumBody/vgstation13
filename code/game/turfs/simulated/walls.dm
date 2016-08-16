@@ -19,7 +19,7 @@
 	var/dismantle_type = /turf/simulated/floor/plating
 	var/girder_type = /obj/structure/girder
 
-	canSmoothWith = "/turf/simulated/wall=0&/obj/structure/falsewall=0&/obj/structure/rfalsewall=0"
+	canSmoothWith = "/turf/simulated/wall=0&/obj/structure/falsewall=0&/obj/structure/falserwall=0"
 
 	soot_type = null
 
@@ -213,7 +213,8 @@
 			playsound(src, 'sound/items/Welder.ogg', 100, 1)
 
 			if(do_after(user, src, 100))
-				if(!istype(src)) return
+				if(!istype(src))
+					return
 				playsound(src, 'sound/items/Welder.ogg', 100, 1)
 				user.visible_message("<span class='warning'>[user] slices through \the [src]'s outer plating.</span>", \
 				"<span class='notice'>You slice through \the [src]'s outer plating.</span>", \

@@ -49,11 +49,13 @@
 		return
 	on = !on
 	icon_state = "[base_state][on]"
-	if(on)	set_light(brightness_on)
-	else	set_light(0)
+	if(on)
+		set_light(brightness_on)
+	else
+		set_light(0)
 	user.update_inv_head()
 
-// ENGINEERING
+// Tc_ENGINEERING
 /obj/item/clothing/suit/space/plasmaman/assistant
 	name = "plasmaman assistant suit"
 	icon_state = "plasmamanAssistant_suit"

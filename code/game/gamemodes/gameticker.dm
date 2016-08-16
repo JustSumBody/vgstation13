@@ -239,7 +239,8 @@ var/global/datum/controller/gameticker/ticker
 
 	//Plus it provides an easy way to make cinematics for other events. Just use this as a template :)
 /datum/controller/gameticker/proc/station_explosion_cinematic(var/station_missed=0, var/override = null)
-	if( cinematic )	return	//already a cinematic in progress!
+	if( cinematic )
+		return	//already a cinematic in progress!
 
 	for (var/datum/html_interface/hi in html_interfaces)
 		hi.closeAll()
@@ -322,7 +323,7 @@ var/global/datum/controller/gameticker/ticker
 			for(var/mob/living/M in living_mob_list)
 				if(M)
 					var/turf/T = get_turf(M)
-					if(T && T.z == 1)
+					if(T && T.z == map.zMainStation)
 						M.death()//No mercy
 	//If its actually the end of the round, wait for it to end.
 	//Otherwise if its a verb it will continue on afterwards.

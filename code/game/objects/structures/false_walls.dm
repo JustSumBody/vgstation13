@@ -22,8 +22,10 @@
 		else
 			if(istype(T,/turf/simulated))
 				continue
-		if(cp<minp)minp=cp
-		if(cp>maxp)maxp=cp
+		if(cp<minp)
+			minp=cp
+		if(cp>maxp)
+			maxp=cp
 	return abs(minp-maxp)
 
 /**
@@ -41,8 +43,10 @@
 		else
 			if(istype(T,/turf/simulated))
 				continue
-		if(cp<minp)minp=cp
-		if(cp>maxp)maxp=cp
+		if(cp<minp)
+			minp=cp
+		if(cp>maxp)
+			maxp=cp
 	return abs(minp-maxp)
 
 
@@ -237,6 +241,7 @@
 	canSmoothWith = "/turf/simulated/wall=0&/obj/structure/falsewall=0&/obj/structure/falserwall=0"
 
 /obj/structure/falserwall/New()
+	relativewall()
 	relativewall_neighbours()
 	..()
 
