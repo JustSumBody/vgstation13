@@ -21,19 +21,11 @@ LINEN BINS
 
 //cutting the bedsheet into rags
 /obj/item/weapon/bedsheet/attackby(var/obj/item/I, mob/user as mob)
-	var/cut_time=0
-	if(istype(I, /obj/item/weapon/scalpel))
-		cut_time=20
-	else if(istype(I, /obj/item/weapon/kitchen/utensil/knife/large) || istype(I, /obj/item/weapon/kitchen/utensil/knife/large/butch))
-		cut_time=40
-	else if(istype(I, /obj/item/weapon/shard))
-		cut_time=80
-	else if(istype(I, /obj/item/weapon/kitchen/utensil/knife/plastic))
-		cut_time=160
-	if(cut_time)
+	if(I.is_sharp() >= 0.8)
 		to_chat(user, "<span  class='notice'>You begin cutting the [src].</span>")
-		if(do_after(user, src, cut_time))
-			if(!src) return
+		if(do_after(user, src, 60))
+			if(!src) 
+				return
 			to_chat(user, "<span  class='notice'>You have cut the [src] into rags.</span>")
 			var/turf/location = get_turf(src)
 			for(var/x=0; x<=8; x++)
